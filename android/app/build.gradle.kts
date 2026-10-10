@@ -1,3 +1,4 @@
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -11,6 +12,7 @@ android {
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled=true
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -38,7 +40,10 @@ android {
         }
     }
 }
-
+dependencies{
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+//Thư viện desugar_jdk_libs chính là công cụ giúp hệ thống thực hiện việc chuyển đổi tương thích nói trên
+}
 flutter {
     source = "../.."
 }
